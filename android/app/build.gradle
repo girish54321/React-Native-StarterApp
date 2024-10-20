@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -103,6 +104,32 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+      // RN Flavars
+    flavorDimensions "default"
+	
+	productFlavors {
+        dev {
+            resValue "string", "app_name", "Starter DEV"
+            resValue "string", "base_url", "https://reqres.in/api/"
+            resValue "string", "BUILD_ENV", "DEV"
+            resValue "string", "CodePushDeploymentKey", "jLOrVrHK1JdsyoKMG5msgdgf20ApBkgWhk1ii"
+            applicationIdSuffix ".dev"
+        }
+        staging {
+            resValue "string", "app_name", "Starter staging"
+            resValue "string", "base_url", "https://reqres.in/api/"
+            resValue "string", "BUILD_ENV", "STAGING"
+            resValue "string", "CodePushDeploymentKey", "Hdb4t1CJ7wEMLIy_cujCBq56vGait646Y6hvL"
+            applicationIdSuffix ".staging"
+        }
+        prod {
+            resValue "string", "app_name", "Starter"
+            resValue "string", "base_url", "https://reqres.in/api/"
+            resValue "string", "BUILD_ENV", "PROD"
+            resValue "string", "CodePushDeploymentKey", "K9YDp0RRMLXCpVbYCvs7hAcLb4nHLJUwtvEyq"
+            applicationIdSuffix ".prod"
         }
     }
 }
