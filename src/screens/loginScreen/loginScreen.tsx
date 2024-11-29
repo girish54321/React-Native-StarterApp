@@ -13,6 +13,8 @@ import { userLoginAction } from '../../redux/authStore/action';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import SizedBox from '../../components/SizedBox';
 const data12 = NativeModules?.RNConfigModule;
+const {CalendarModule} = NativeModules;
+// console.log("CalendarModule",);
 
 const LoginScreen = () => {
   const paperTheme = useTheme();
@@ -24,10 +26,17 @@ const LoginScreen = () => {
     isValidPassword: false,
   });
 
-  const data = NativeModules.RNConfigModule;
+  const nativeData = NativeModules.RNConfigModule;
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
+    // CalendarModule.createCalendarEvent("Girish","Parate")
+  console.log("MyNativeModule");
+  NativeModules?.CalendarModule?.getBuildInfo().then(()=>{
+
+  })
+
+    return
     if (userData.isValidEmail && userData.isValidPassword) {
       let data = {
         email: "eve.holt@reqres.in",
@@ -81,9 +90,9 @@ const LoginScreen = () => {
       <View style={{ flex: 1, marginHorizontal: 22 }}>
         <TouchableOpacity
           style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
-          <Text >Running {data.BUILD_ENV}</Text>
+          <Text >Running {nativeData?.BUILD_ENV}</Text>
           <View style={{ marginTop: 8 }} />
-          <Text >Your Base URL is {data.BASE_URL}</Text>
+          <Text >Your Base URL is {nativeData?.BASE_URL}</Text>
         </TouchableOpacity>
         <TextInput
           style={{ backgroundColor: paperTheme.colors.background }}
