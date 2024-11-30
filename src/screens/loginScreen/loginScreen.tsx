@@ -30,11 +30,10 @@ const LoginScreen = () => {
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
-    // CalendarModule.createCalendarEvent("Girish","Parate")
-  console.log("MyNativeModule");
-  NativeModules?.CalendarModule?.getBuildInfo().then(()=>{
+  console.log("MyNativeModule",NativeModules?.CalendarModule);
+  // NativeModules?.CalendarModule?.getBuildInfo().then(()=>{
 
-  })
+  // })
 
     return
     if (userData.isValidEmail && userData.isValidPassword) {
