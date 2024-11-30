@@ -6,8 +6,8 @@
 //
 import Foundation
 
-@objc(RNShare)
-class RNShare : NSObject {
+@objc(RNConfigModule)
+class RNConfigModule : NSObject {
   
   // MARK: Build Config Value
   let BASE_URL = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String

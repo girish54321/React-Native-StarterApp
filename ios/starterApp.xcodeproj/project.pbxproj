@@ -16,8 +16,8 @@
 		7699B88040F8A987B510C191 /* libPods-starterApp-starterAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-starterApp-starterAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		F49B8AF52CFA377D00A1B30D /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AF42CFA377B00A1B30D /* RCTCalendarModule.m */; };
-		F49B8AFA2CFAA8C600A1B30D /* RNShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AF92CFAA8C600A1B30D /* RNShare.swift */; };
-		F49B8AFC2CFAA95E00A1B30D /* RNShare.m in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AFB2CFAA95E00A1B30D /* RNShare.m */; };
+		F49B8AFA2CFAA8C600A1B30D /* RNConfigModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AF92CFAA8C600A1B30D /* RNConfigModule.swift */; };
+		F49B8AFC2CFAA95E00A1B30D /* RNConfigModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AFB2CFAA95E00A1B30D /* RNConfigModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,8 @@
 		F49B8AF32CFA376300A1B30D /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
 		F49B8AF42CFA377B00A1B30D /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
 		F49B8AF82CFAA8C500A1B30D /* starterApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "starterApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		F49B8AF92CFAA8C600A1B30D /* RNShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNShare.swift; sourceTree = "<group>"; };
-		F49B8AFB2CFAA95E00A1B30D /* RNShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNShare.m; sourceTree = "<group>"; };
+		F49B8AF92CFAA8C600A1B30D /* RNConfigModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigModule.swift; sourceTree = "<group>"; };
+		F49B8AFB2CFAA95E00A1B30D /* RNConfigModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNConfigModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +119,9 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				6007050F300055FC8468AA61 /* PrivacyInfo.xcprivacy */,
-				F49B8AF92CFAA8C600A1B30D /* RNShare.swift */,
+				F49B8AF92CFAA8C600A1B30D /* RNConfigModule.swift */,
 				F49B8AF82CFAA8C500A1B30D /* starterApp-Bridging-Header.h */,
-				F49B8AFB2CFAA95E00A1B30D /* RNShare.m */,
+				F49B8AFB2CFAA95E00A1B30D /* RNConfigModule.m */,
 			);
 			name = starterApp;
 			sourceTree = "<group>";
@@ -435,11 +435,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49B8AFC2CFAA95E00A1B30D /* RNShare.m in Sources */,
+				F49B8AFC2CFAA95E00A1B30D /* RNConfigModule.m in Sources */,
 				F49B8AF52CFA377D00A1B30D /* RCTCalendarModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				F49B8AFA2CFAA8C600A1B30D /* RNShare.swift in Sources */,
+				F49B8AFA2CFAA8C600A1B30D /* RNConfigModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +509,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9794CECACE81BD821F180EE1 /* Pods-starterApp.debugdev.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = StarterDev;
 				BASE_URL = "https://reqres.in/api/";
 				BUILD_ENV = DEV;
 				CLANG_ENABLE_MODULES = YES;
@@ -539,7 +539,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A51664B5B5F84F7537CD7A34 /* Pods-starterApp.releasedev.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = StarterDev;
 				BASE_URL = "https://reqres.in/api/";
 				BUILD_ENV = DEV;
 				CLANG_ENABLE_MODULES = YES;
@@ -636,7 +636,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -709,7 +712,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -790,7 +796,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -802,7 +811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E182C05F8CF5F9783AC8D33 /* Pods-starterApp.debugstaging.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = StarterStaging;
 				BASE_URL = "https://reqres.in/api/";
 				BUILD_ENV = STAGING;
 				CLANG_ENABLE_MODULES = YES;
@@ -920,7 +929,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -932,7 +944,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 879FD91A01EAE9B20B86B73D /* Pods-starterApp.releasestaging.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = StarterStaging;
 				BASE_URL = "https://reqres.in/api/";
 				BUILD_ENV = STAGING;
 				CLANG_ENABLE_MODULES = YES;
@@ -1053,7 +1065,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -1065,7 +1080,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A6F69A4661B970B2A4C74C9 /* Pods-starterApp.debugprod.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = StarterProd;
 				BASE_URL = "https://reqres.in/api/";
 				BUILD_ENV = PROD;
 				CLANG_ENABLE_MODULES = YES;
@@ -1183,7 +1198,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -1195,7 +1213,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B79F038EDBCC0A581E060E6D /* Pods-starterApp.releaseprod.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = StarterProd;
 				BASE_URL = "https://reqres.in/api/";
 				BUILD_ENV = PROD;
 				CLANG_ENABLE_MODULES = YES;
