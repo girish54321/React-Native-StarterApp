@@ -31,7 +31,7 @@ export const themSlice = createSlice({
   name: "themSlice",
   initialState: INITIAL_STATE,
   reducers: {
-    changeThemAction: (state, action: PayloadAction<DARK_THEME_TYPE>) => {
+    changeThemAction: (state, action: PayloadAction<boolean>) => {
       return changeThemAction(state, action)
     },
     checkThemAction: (state, action: PayloadAction<boolean>) => {

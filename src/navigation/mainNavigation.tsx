@@ -29,6 +29,7 @@ export const Navigation: FC = () => {
     console.log("authState3", authState);
 
     useEffect(() => {
+        //@ts-ignore
         authDispatch(checkTheme());
         checkIfLoggedIn();
     }, [])

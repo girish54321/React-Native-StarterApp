@@ -2,6 +2,7 @@ import userListReducer from './UserListStore/userListReducer'
 import themeReducer from './themeStore/reducers'
 import authReducer from './authStore/authReducers'
 import appReducers from './appStore/AppReducers'
+//@ts-ignore
 import logger from 'redux-logger'
 
 const rootReducer = combineReducers({
