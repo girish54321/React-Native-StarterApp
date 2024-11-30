@@ -30,7 +30,9 @@ const LoginScreen = () => {
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
-  console.log("MyNativeModule",NativeModules?.CalendarModule);
+    console.log("My code",NativeModules?.RNShare);
+    
+  console.log("MyNativeModule",NativeModules?.RNShare?.open({message: 'Bridge with Swift Dev.to Tutorial'}));
   // NativeModules?.CalendarModule?.getBuildInfo().then(()=>{
 
   // })

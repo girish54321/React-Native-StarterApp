@@ -16,6 +16,8 @@
 		7699B88040F8A987B510C191 /* libPods-starterApp-starterAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-starterApp-starterAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		F49B8AF52CFA377D00A1B30D /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AF42CFA377B00A1B30D /* RCTCalendarModule.m */; };
+		F49B8AFA2CFAA8C600A1B30D /* RNShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AF92CFAA8C600A1B30D /* RNShare.swift */; };
+		F49B8AFC2CFAA95E00A1B30D /* RNShare.m in Sources */ = {isa = PBXBuildFile; fileRef = F49B8AFB2CFAA95E00A1B30D /* RNShare.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,9 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F49B8AF32CFA376300A1B30D /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
 		F49B8AF42CFA377B00A1B30D /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
+		F49B8AF82CFAA8C500A1B30D /* starterApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "starterApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		F49B8AF92CFAA8C600A1B30D /* RNShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNShare.swift; sourceTree = "<group>"; };
+		F49B8AFB2CFAA95E00A1B30D /* RNShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNShare.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,9 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				6007050F300055FC8468AA61 /* PrivacyInfo.xcprivacy */,
+				F49B8AF92CFAA8C600A1B30D /* RNShare.swift */,
+				F49B8AF82CFAA8C500A1B30D /* starterApp-Bridging-Header.h */,
+				F49B8AFB2CFAA95E00A1B30D /* RNShare.m */,
 			);
 			name = starterApp;
 			sourceTree = "<group>";
@@ -216,7 +224,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1610;
 					};
 				};
 			};
@@ -403,9 +411,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49B8AFC2CFAA95E00A1B30D /* RNShare.m in Sources */,
 				F49B8AF52CFA377D00A1B30D /* RCTCalendarModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F49B8AFA2CFAA8C600A1B30D /* RNShare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = starterApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "starterApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -518,6 +529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = starterApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "starterApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
