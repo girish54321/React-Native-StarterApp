@@ -26,17 +26,12 @@ const LoginScreen = () => {
     isValidPassword: false,
   });
 
-  const nativeData = NativeModules.RNConfigModule;
+  const nativeData = NativeModules.RNConfigModule ||NativeModules?.RNShare ;
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
     console.log("My code",NativeModules?.RNShare);
-    
   console.log("MyNativeModule",NativeModules?.RNShare?.open({message: 'Bridge with Swift Dev.to Tutorial'}));
-  // NativeModules?.CalendarModule?.getBuildInfo().then(()=>{
-
-  // })
-
     return
     if (userData.isValidEmail && userData.isValidPassword) {
       let data = {

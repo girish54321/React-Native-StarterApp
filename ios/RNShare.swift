@@ -10,8 +10,8 @@ import Foundation
 class RNShare : NSObject {
   
   // MARK: Build Config Value
-  let BASE_URL = Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String
-  let BUILD_ENV = Bundle.main.object(forInfoDictionaryKey: "BuildEnvironment") as? String
+  let BASE_URL = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String
+  let BUILD_ENV = Bundle.main.object(forInfoDictionaryKey: "BUILD_ENV") as? String
   
   @objc
    func getBuildInfo (_ resolve:RCTPromiseResolveBlock,
