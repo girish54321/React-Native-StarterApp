@@ -1,4 +1,4 @@
-import { Colors } from "Config/Colors";
+import { Colors } from "../../Config/Colors";
 
 const AppHeaderStyle = {
   headerTitleAlign: 'center',

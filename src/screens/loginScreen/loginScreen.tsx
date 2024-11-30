@@ -12,9 +12,6 @@ import { TextInput, Button, useTheme, } from 'react-native-paper';
 import { userLoginAction } from '../../redux/authStore/action';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import SizedBox from '../../components/SizedBox';
-const data12 = NativeModules?.RNConfigModule;
-const {CalendarModule} = NativeModules;
-// console.log("CalendarModule",);
 
 const LoginScreen = () => {
   const paperTheme = useTheme();
@@ -30,13 +27,8 @@ const LoginScreen = () => {
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
-    // CalendarModule.createCalendarEvent("Girish","Parate")
-  console.log("MyNativeModule");
-  NativeModules?.CalendarModule?.getBuildInfo().then(()=>{
-
-  })
-
-    return
+    console.log("'Do Login Man");
+    
     if (userData.isValidEmail && userData.isValidPassword) {
       let data = {
         email: "eve.holt@reqres.in",

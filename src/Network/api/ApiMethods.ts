@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import Axios, { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { getBaseUrl, getEnvironmentVariable } from "../../constants/AppConstants";
 
 
@@ -16,7 +16,7 @@ const Api = Axios.create({
 
 
 Api.interceptors.request.use(
-    (config: AxiosRequestConfig) => {
+    (config: InternalAxiosRequestConfig) => {
         /** In dev, intercepts request and logs it into console for dev */
         config.baseURL = getBaseUrl();
         if (DEBUG) {

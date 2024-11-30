@@ -1,5 +1,4 @@
 import { NativeModules } from "react-native";
-// const DEBUG = __DEV__;
 const Flavor = NativeModules.RNConfigModule;
 
 export function getBaseUrl() {
