@@ -5,7 +5,10 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "android_dev_debug": "react-native run-android --appIdSuffix=dev",
+    "installDevDebug": "cd android && ./gradlew app:installDevDebug",
+    "installProdDebug": "cd android && ./gradlew app:installProdDebug",
+    "installStagingDebug": "cd android && ./gradlew app:installStagingDebug",
+    "android_dev_debug": "react-native run-android --variant=devDebug --appIdSuffix=dev",
     "android_man": "cd android && ./gradlew installDevDebug",
     "android_apk_dev": "cd android && ./gradlew clean && ./gradlew assembleDevRelease",
     "clean:android": "cd android && ./gradlew clean",
