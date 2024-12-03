@@ -20,12 +20,26 @@ export interface Company {
 export interface UserList {
     id: number;
     first_name: string;
-    avatar:string;
-    last_name:string,
+    avatar: string;
+    last_name: string,
     username: string;
     email: string;
     address: Address;
     phone: string;
     website: string;
     company: Company;
+}
+
+export interface UserListResponse {
+    page: number;
+    per_page: number;
+    total: number;
+    total_pages: number;
+    data: UserList[];
+    support: Support;
+}
+
+export interface Support {
+    url: string;
+    text: string;
 }
