@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
     NativeModules
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTheme, } from 'react-native-paper';
-import { userLoginAction } from '../../redux/authStore/action';
+import { useUserLogin } from '../../Network/Querys/useLoginMutaion';
+import { authSlice } from '../../redux/authStore/authReducers';
 
 export const defaultLoginScreenState = {
     email: '',
@@ -21,17 +22,33 @@ const useLoginScreenModal = () => {
     const nativeData = NativeModules.RNConfigModule;
 
     const authDispatch = useDispatch();
+    const { mutateAsync, mutate, isError, error } = useUserLogin()
+    console.log({ isError, error });
 
-    const saveUserLogin = () => {
-        if (userData.isValidEmail && userData.isValidPassword) {
-            let data = {
-                email: "eve.holt@reqres.in",
-                password: "cityslicka"
-            };
-            authDispatch(userLoginAction(data))
-        } else {
+    const saveUserLogin = async () => {
+        let postData = {
+            email: "eve.holt@reqres.in",
+            password: "cityslicka"
+        };
+        console.log("Api call");
+        mutate({ postData: postData }, {
+            onSuccess: (data, variables, context) => {
+                authDispatch(authSlice.actions.userLoginAction({
+                    isLoading: false,
+                    userLoggedIn: true,
+                    userName: postData.email,
+                    email: postData.email,
+                    token: data.data.token,
+                }));
+            },
+            onError: (error, variables, context) => {
+                console.log("On Error");
+            },
+            onSettled: (data, error, variables, context) => {
+                console.log("On Settled");
+            },
+        })
 
-        }
     };
 
     const textEmailChange = (val: any) => {
