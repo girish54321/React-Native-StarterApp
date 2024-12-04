@@ -4,7 +4,7 @@ import { AppView } from "../../components/Flex/Flex";
 import { ListItem } from "../../components/ListItem/ListItem";
 import { navigate } from "../../navigation/NavigationService";
 import { Route } from "../../constants/Route";
-import { useUserList } from "../../Network/Querys/useUserList";
+import { useUserList } from "../../Network/Querys/useUserListQuery";
 import LoadingView from "../../components/loadingView";
 import { ActivityIndicator } from "react-native-paper";
 
