@@ -1,4 +1,5 @@
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { APP_CONST } from '../../Config/Colors';
 
