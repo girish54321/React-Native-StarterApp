@@ -12,57 +12,15 @@ import { TextInput, Button, useTheme, } from 'react-native-paper';
 import { userLoginAction } from '../../redux/authStore/action';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import SizedBox from '../../components/SizedBox';
+import useLoginScreenModal from './useLoginScreenModal';
 
 const LoginScreen = () => {
-  const paperTheme = useTheme();
-  const [userData, setuserData] = useState({
-    email: '',
-    password: '',
-    secureTextEntry: true,
-    isValidEmail: false,
-    isValidPassword: false,
-  });
-
-  const nativeData = NativeModules.RNConfigModule;
-
-  const authDispatch = useDispatch();
-  const saveUserLogin = () => {
-    console.log("'Do Login Man");
-    
-    if (userData.isValidEmail && userData.isValidPassword) {
-      let data = {
-        email: "eve.holt@reqres.in",
-        password: "cityslicka"
-      };
-      authDispatch(userLoginAction(data))
-    } else {
-
-    }
-  };
-
-  const textEmailChange = (val: any) => {
-    setuserData({
-      ...userData,
-      email: val.trim(),
-      isValidEmail: true,
-    });
-  };
-
-  const textPasswordChange = (val: any) => {
-    if (val.trim().length >= 8) {
-      setuserData({
-        ...userData,
-        password: val,
-        isValidPassword: true,
-      });
-    } else {
-      setuserData({
-        ...userData,
-        password: val,
-        isValidPassword: false,
-      });
-    }
-  };
+  const { paperTheme,
+    userData,
+    saveUserLogin,
+    textEmailChange,
+    textPasswordChange,
+    nativeData } = useLoginScreenModal();
 
   return (
     <KeyboardAvoidingView
