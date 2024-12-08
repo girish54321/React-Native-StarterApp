@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { AppView, Column } from "../../components/Flex/Flex";
 import '../../localization';
 import { useTranslation } from 'react-i18next';
 // import Animated, { useSharedValue, useAnimatedStyle, interpolate, withTiming } from "react-native-reanimated";
 import { AppButton } from "../../components/Button/Button";
+import { Text } from "react-native-paper";
 
 export const WelcomeScreen = () => {
 
@@ -59,7 +60,7 @@ export const WelcomeScreen = () => {
         <AppView>
             {/* <Animated.View style={[{ flex: 1 }, animatedStyle]}> */}
             <Column alignItems="center" justifyContent="center" style={[style.container,]}>
-                <Text>homePage NS: {t('homePage:welcome')}</Text>
+                <Text testID="home-page-test">homePage NS: {t('homePage:welcome')}</Text>
                 <Text>Default NS: {t('ok')}</Text>
                 <AppButton
                     onPress={() => {
