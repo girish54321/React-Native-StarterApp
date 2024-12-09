@@ -1,5 +1,4 @@
 import React, { FC, useEffect, } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import {
     NavigationContainer,
     DefaultTheme as NavigationDefaultTheme,
@@ -10,7 +9,7 @@ import {
     MD3LightTheme as PaperDefaultTheme,
     MD3DarkTheme as PaperDarkTheme
 } from 'react-native-paper'
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setTopLevelNavigator } from './NavigationService';
 import { AppBottomTab } from './appNavigation/AppNavigation';
 import AuthStackScreens from './authStack/AuthStackScreens';
@@ -20,13 +19,13 @@ import { authSlice } from '../redux/authStore/authReducers';
 import LoadingView from '../components/loadingView';
 import AppStatusBar from '../components/appStatusBar/appStatusBar';
 import { APP_CONST, Colors } from '../Config/Colors';
+import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 
 export const Navigation: FC = () => {
-    const data: DARK_THEME_TYPE = useSelector((state: any) => state.themeReducer);
+    const data: DARK_THEME_TYPE = useAppSelector((state: any) => state.themeReducer);
 
-    const authState = useSelector((state: any) => state.authReducer);
-    const authDispatch = useDispatch();
-    console.log("authState3", authState);
+    const authDispatch = useAppDispatch()
+    const authState = useAppSelector((state: any) => state.authReducer);
 
     useEffect(() => {
         //@ts-ignore

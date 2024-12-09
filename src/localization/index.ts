@@ -3,11 +3,11 @@ import i18n, {
   Services,
   InitOptions,
 } from 'i18next';
-import {initReactI18next} from 'react-i18next';
-import AsyncStorage from '@react-native-community/async-storage';
+import { initReactI18next } from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
 import en from './en';
 import hi from './hi';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const AVAILABLE_LANGUAGES = {
   en,
@@ -39,7 +39,7 @@ const languageDetector: LanguageDetectorAsyncModule = {
             'No language is set, choosing the best available or English as fallback',
           );
         }
-        const bestLng = RNLocalize.findBestAvailableLanguage(
+        const bestLng = RNLocalize.findBestLanguageTag(
           AVALAILABLE_LANG_CODES,
         );
 

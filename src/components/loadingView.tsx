@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { View, StyleSheet } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
+import { Colors } from '../Config/Colors';
 
 const LoadingView = () => {
   return (

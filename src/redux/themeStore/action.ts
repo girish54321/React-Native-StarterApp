@@ -1,4 +1,5 @@
-import AsyncStorage from '@react-native-community/async-storage'
+// import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { themSlice } from './reducers';
 import { Dispatch } from 'redux';
 import { APP_CONST } from '../../Config/Colors';
