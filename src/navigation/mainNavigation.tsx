@@ -1,14 +1,14 @@
-import React, { FC, useEffect, } from 'react';
+import React, { FC, useEffect } from 'react';
 import {
     NavigationContainer,
     DefaultTheme as NavigationDefaultTheme,
-    DarkTheme as NavigationDarkTheme
-} from '@react-navigation/native'
+    DarkTheme as NavigationDarkTheme,
+} from '@react-navigation/native';
 import {
     Provider as PaperProvider,
     MD3LightTheme as PaperDefaultTheme,
-    MD3DarkTheme as PaperDarkTheme
-} from 'react-native-paper'
+    MD3DarkTheme as PaperDarkTheme,
+} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setTopLevelNavigator } from './NavigationService';
 import { AppBottomTab } from './appNavigation/AppNavigation';
@@ -24,14 +24,14 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 export const Navigation: FC = () => {
     const data: DARK_THEME_TYPE = useAppSelector((state: any) => state.themeReducer);
 
-    const authDispatch = useAppDispatch()
+    const authDispatch = useAppDispatch();
     const authState = useAppSelector((state: any) => state.authReducer);
 
     useEffect(() => {
         //@ts-ignore
         authDispatch(checkTheme());
         checkIfLoggedIn();
-    }, [])
+    }, []);
 
     const checkIfLoggedIn = () => {
         AsyncStorage.getItem(APP_CONST.USER_LOGIN)
@@ -57,10 +57,9 @@ export const Navigation: FC = () => {
             accent: Colors.primary,
             primary: Colors.primary,
             card: 'rgb(255, 255, 255)',
-            // background: '#ffffff',
-            text: '#000000'
-        }
-    }
+            text: '#000000',
+        },
+    };
 
     let CustomDarkTheme = {
         ...PaperDarkTheme,
@@ -72,9 +71,9 @@ export const Navigation: FC = () => {
             primary: Colors.primary,
             card: 'rgb(18, 18, 18)',
             background: '#000000',
-            text: '#ffffff'
-        }
-    }
+            text: '#ffffff',
+        },
+    };
 
     if (authState.isLoading) {
         return <LoadingView />;
@@ -96,4 +95,4 @@ export const Navigation: FC = () => {
             </NavigationContainer>
         </PaperProvider>
     );
-}
+};
