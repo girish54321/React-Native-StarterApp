@@ -4,5 +4,4 @@ export interface ButtonProps {
     children: any,
     onPress: any,
     uppercase?: boolean,
-
 }

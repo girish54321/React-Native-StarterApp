@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import {
-    NativeModules
+    NativeModules,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useTheme, } from 'react-native-paper';
+import { useTheme } from 'react-native-paper';
 import { useUserLogin } from '../../Network/Querys/useLoginMutaion';
 import { authSlice } from '../../redux/authStore/authReducers';
 
@@ -17,22 +17,22 @@ export const defaultLoginScreenState = {
 
 const useLoginScreenModal = () => {
     const paperTheme = useTheme();
-    const [userData, setuserData] = useState(defaultLoginScreenState)
+    const [userData, setuserData] = useState(defaultLoginScreenState);
 
     const nativeData = NativeModules.RNConfigModule;
 
     const authDispatch = useDispatch();
-    const { mutateAsync, mutate, isError, error } = useUserLogin()
+    const { mutate, isError, error } = useUserLogin();
     console.log({ isError, error });
 
     const saveUserLogin = async () => {
         let postData = {
-            email: "eve.holt@reqres.in",
-            password: "cityslicka"
+            email: 'eve.holt@reqres.in',
+            password: 'cityslicka',
         };
-        console.log("Api call");
+        console.log('Api call');
         mutate({ postData: postData }, {
-            onSuccess: (data, variables, context) => {
+            onSuccess: (data) => {
                 authDispatch(authSlice.actions.userLoginAction({
                     isLoading: false,
                     userLoggedIn: true,
@@ -41,13 +41,13 @@ const useLoginScreenModal = () => {
                     token: data.data.token,
                 }));
             },
-            onError: (error, variables, context) => {
-                console.log("On Error");
+            onError: () => {
+                console.log('On Error');
             },
-            onSettled: (data, error, variables, context) => {
-                console.log("On Settled");
+            onSettled: () => {
+                console.log('On Settled');
             },
-        })
+        });
 
     };
 
@@ -81,9 +81,9 @@ const useLoginScreenModal = () => {
         saveUserLogin,
         textEmailChange,
         textPasswordChange,
-        nativeData
-    }
+        nativeData,
+    };
 
-}
+};
 
 export default useLoginScreenModal;

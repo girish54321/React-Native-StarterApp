@@ -1,3 +1,3 @@
 export const usersUrl = 'users';
-export const loginUrl = "login";
+export const loginUrl = 'login';
 

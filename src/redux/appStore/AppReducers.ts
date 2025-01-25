@@ -1,6 +1,5 @@
-// import AsyncStorage from '@react-native-community/async-storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { APP_CONST } from '../../Config/Colors';
 
 export interface APP_STATE {
@@ -15,7 +14,7 @@ const INITIAL_STATE: APP_STATE = {
 
 
 export const appSlice = createSlice({
-  name: "appSlice",
+  name: 'appSlice',
   initialState: INITIAL_STATE,
   reducers: {
     showLoaderAction: (state) => {
@@ -34,7 +33,7 @@ export const appSlice = createSlice({
         ...state,
         ...action.payload,
         isLoading: false,
-      }
+      };
     },
     userLoginLogOutAction: (state) => {
       AsyncStorage.removeItem(APP_CONST.USER_LOGIN);

@@ -1,6 +1,6 @@
 // import AsyncStorage from '@react-native-community/async-storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { APP_CONST } from '../../Config/Colors';
 
 interface AUTH_TYPE {
@@ -21,7 +21,7 @@ const INITIAL_STATE: AUTH_TYPE = {
 
 
 export const authSlice = createSlice({
-  name: "authSlice",
+  name: 'authSlice',
   initialState: INITIAL_STATE,
   reducers: {
     userLoginAction: (state, action: PayloadAction<AUTH_TYPE>) => {
@@ -34,7 +34,7 @@ export const authSlice = createSlice({
         ...state,
         ...action.payload,
         isLoading: false,
-      }
+      };
     },
     userLoginLogOutAction: (state) => {
       AsyncStorage.removeItem(APP_CONST.USER_LOGIN);
