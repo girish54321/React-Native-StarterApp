@@ -80,7 +80,9 @@ export const Navigation: FC = () => {
     }
 
     return (
-        <PaperProvider theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
+        <PaperProvider
+        //  theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}
+        >
             <AppStatusBar isDarkTheme={data.isDarkTheme} />
             <NavigationContainer
                 ref={(navigatorRef: any) => {

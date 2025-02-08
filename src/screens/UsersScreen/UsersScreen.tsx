@@ -32,7 +32,7 @@ export const UsersScreen = (_props: any) => {
             return <ActivityIndicator />;
         }
         if (!hasNextPage) {
-            return <Text style={styles.noDataText} variant="titleMedium">No more users to load</Text>
+            return <Text style={styles.noDataText} >No more users to load</Text>
         }
         return null;
     };
