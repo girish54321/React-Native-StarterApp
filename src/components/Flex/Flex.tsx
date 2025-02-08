@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { View } from 'react-native';
-import { FlexProps } from './FlexProps';
-import { scale } from '../../Config/ScalingUtils';
+import React, { FC } from "react";
+import { View } from "react-native";
+import { FlexProps } from "./FlexProps";
+import { scale } from "../../Config/ScalingUtils";
 
 export const Row: FC<FlexProps> = props => {
     const { reverse, alignItems, justifyContent, style, children, ...rest } = props;
@@ -12,7 +12,7 @@ export const Row: FC<FlexProps> = props => {
             {children}
         </View>
     );
-};
+}
 
 export const Column: FC<FlexProps> = props => {
     const { reverse, alignItems, justifyContent, style, children, ...rest } = props;
@@ -23,7 +23,7 @@ export const Column: FC<FlexProps> = props => {
             {children}
         </View>
     );
-};
+}
 
 export const AppView: FC<FlexProps> = props => {
     const { reverse, alignItems, justifyContent, style, children, paddingRequired, ...rest } = props;
@@ -32,9 +32,9 @@ export const AppView: FC<FlexProps> = props => {
     return (
         <View style={[style, {
             flexDirection: direction, alignItems,
-            justifyContent, flex: 1, paddingHorizontal: paddingRequired ? scale(12) : 0,
+            justifyContent, flex: 1, paddingHorizontal: paddingRequired ? scale(12) : 0
         }]} {...rest}>
             {children}
         </View>
     );
-};
+}

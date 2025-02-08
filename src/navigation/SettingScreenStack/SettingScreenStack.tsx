@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from "react"
+import { useTranslation } from "react-i18next";
 import { CustomNavigationBar } from '../../components/appAppBar/AppAppBar';
 import { Route } from '../../constants/Route';
 import SettingsScreen from '../../screens/SettingsScreen/SettingsScreen';
@@ -18,5 +18,5 @@ export const SettingScreenStack = () => {
         >
             <SettingStack.Screen name={Route.SETTINGS} component={SettingsScreen} />
         </SettingStack.Navigator>
-    );
-};
+    )
+}

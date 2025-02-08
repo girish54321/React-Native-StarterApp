@@ -35,7 +35,6 @@
     "react-native": "0.76.5",
     "react-native-animatable": "^1.4.0",
     "react-native-gesture-handler": "^2.20.0",
-    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-localize": "^3.3.0",
     "react-native-paper": "^5.12.5",
     "react-native-reanimated": "^3.16.0",
