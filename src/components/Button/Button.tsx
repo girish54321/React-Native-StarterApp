@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { ButtonProps } from './ButtonProps';
-import { Button } from 'react-native-paper';
+import React, { FC } from "react";
+import { ButtonProps } from "./ButtonProps";
+import { Button } from "react-native-paper";
 
 export const AppButton: FC<ButtonProps> = props => {
     const { mode, children, style, onPress, uppercase } = props;
@@ -10,4 +10,4 @@ export const AppButton: FC<ButtonProps> = props => {
             {children}
         </Button>
     );
-};
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Appbar } from 'react-native-paper';
 import { getHeaderTitle } from '@react-navigation/elements';
 
@@ -17,4 +17,4 @@ export const CustomNavigationBar: React.FC<AppAppBarType> = ({ navigation, route
             <Appbar.Content title={title} />
         </Appbar.Header>
     );
-};
+}

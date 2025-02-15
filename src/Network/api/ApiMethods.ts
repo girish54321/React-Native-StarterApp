@@ -1,5 +1,5 @@
-import Axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-import { getBaseUrl, getEnvironmentVariable } from '../../constants/AppConstants';
+import Axios, { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import { getBaseUrl, getEnvironmentVariable } from "../../constants/AppConstants";
 
 
 const defaultTimeOut = 30000;
@@ -44,7 +44,7 @@ Api.interceptors.response.use(
             return Promise.resolve((response.data));
         } catch (error) {
             if (DEBUG) { console.log('Error: ', error); }
-            return Promise.reject(error);
+            return Promise.reject(error)
         }
     },
     async (error: any) => {

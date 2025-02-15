@@ -32,7 +32,7 @@ Get started building your dream app today with this powerful React Native starte
 Clone the project
 
 ```bash
-  git clone https://github.com/girish54321/react-native-typescript-starter.git
+   git clone https://github.com/girish54321/starterApp.git
 ```
 
 Go to the project directory
