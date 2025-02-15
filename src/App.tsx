@@ -12,5 +12,5 @@ export const App: FC = () => {
             </QueryClientProvider>
         </Provider>
     );
-}
+};
 

@@ -81,13 +81,19 @@ export const Navigation: FC = () => {
     }
 
     return (
-        <PaperProvider theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
+        <PaperProvider
+            theme={{
+                dark: data.isDarkTheme,
+                colors: data.isDarkTheme ? CustomDarkTheme.colors : CustomDefaultTheme.colors,
+            }}
+        >
             <AppStatusBar isDarkTheme={data.isDarkTheme} />
             <NavigationContainer
                 ref={(navigatorRef: any) => {
                     setTopLevelNavigator(navigatorRef);
                 }}
-                theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
+                theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}
+            >
                 {authState.userLoggedIn ? (
                     <AppBottomTab />
                 ) : (
