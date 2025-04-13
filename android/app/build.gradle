@@ -118,7 +118,7 @@ android {
             applicationIdSuffix ".dev"
         }
         staging {
-            resValue "string", "app_name", "Starter staging"
+            resValue "string", "app_name", "Starter Staging"
             resValue "string", "base_url", "https://reqres.in/api/"
             resValue "string", "BUILD_ENV", "STAGING"
             resValue "string", "CodePushDeploymentKey", "Hdb4t1CJ7wEMLIy_cujCBq56vGait646Y6hvL"
@@ -137,6 +137,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
