@@ -48,7 +48,7 @@ export default LanguageSelector;
 
 const styles = StyleSheet.create({
   container: {
-    width: width
+    width: width,
   },
   titleContainer: {
     alignItems: 'center',

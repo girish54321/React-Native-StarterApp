@@ -18,6 +18,6 @@ export default (api: AxiosInstance) => {
     return {
         postService,
         getService,
-        userLoginApi
-    }
-}
+        userLoginApi,
+    };
+};
