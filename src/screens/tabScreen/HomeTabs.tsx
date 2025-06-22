@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { FlatList, GestureResponderEvent, View } from 'react-native';
+import { GestureResponderEvent, View, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Animated, { useSharedValue, useAnimatedStyle, interpolate, useAnimatedScrollHandler, Extrapolate } from "react-native-reanimated";
+import Animated, { useSharedValue, useAnimatedStyle, interpolate, useAnimatedScrollHandler, Extrapolate } from 'react-native-reanimated';
 import '../../localization';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,44 @@ import { ListItem } from '../../components/ListItem/ListItem';
 import { AppView } from '../../components/Flex/Flex';
 const Tab = createMaterialTopTabNavigator();
 
+type User = {
+    id: number;
+    name: string;
+    email: string;
+};
+
+const styles = StyleSheet.create({
+    flex1: { flex: 1 },
+    padding8: { padding: 8 },
+});
+
+type HomeScreenProps = {
+    data: User[];
+    scrollHandler: ReturnType<typeof useAnimatedScrollHandler>;
+};
+
+const HomeScreen: React.FC<HomeScreenProps> = ({ data, scrollHandler }) => {
+    return (
+        <View style={styles.flex1}>
+            <Animated.FlatList
+                data={data?.length ? [...data, ...data] : []}
+                onScroll={scrollHandler}
+                scrollEventThrottle={18}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item, index }) => (
+                    <ListItem
+                        name={item.name}
+                        email={item.email}
+                        image={`https://randomuser.me/api/portraits/men/${index}.jpg`}
+                        onPress={function (_e: GestureResponderEvent): void {
+                            throw new Error('Function not implemented.');
+                        }}
+                    />
+                )}
+            />
+        </View>
+    );
+};
 
 export const HomeTabs = () => {
 
@@ -18,9 +56,9 @@ export const HomeTabs = () => {
     const scrollY = useSharedValue(0);
     const scrollHandler = useAnimatedScrollHandler((event) => {
         scrollY.value = event.contentOffset.y;
-    })
+    });
 
-    const [data] = useFetch("https://jsonplaceholder.typicode.com/users");
+    const [data] = useFetch('https://jsonplaceholder.typicode.com/users');
 
     const animatedStyle = useAnimatedStyle(() => {
         return {
@@ -29,7 +67,7 @@ export const HomeTabs = () => {
                 [10, 300],
                 [300, 0],
                 {
-                    extrapolateLeft: Extrapolate.CLAMP
+                    extrapolateLeft: Extrapolate.CLAMP,
                 }
             ),
             transform: [
@@ -43,42 +81,23 @@ export const HomeTabs = () => {
                     scaleY: interpolate(
                         scrollY.value,
                         [-300, 0, 1],
-                        [2, 1, 1])
+                        [2, 1, 1]),
                 },
                 {
                     scaleX: interpolate(
                         scrollY.value,
                         [-300, 0, 1],
-                        [2, 1, 1])
-                }
-            ]
-        }
-    })
-
-
-    function HomeScreen() {
-        return (
-            <View style={{ flex: 1, }}>
-                <Animated.FlatList data={data?.length ? [...data, ...data] : []}
-                    onScroll={scrollHandler}
-                    scrollEventThrottle={18}
-                    renderItem={(item: any, index: number) => {
-                        return <ListItem
-                            name={item.item.name}
-                            email={item.item.email}
-                            image={`https://randomuser.me/api/portraits/men/${item.index}.jpg`} onPress={function (e: GestureResponderEvent): void {
-                                throw new Error('Function not implemented.');
-                            }} />
-                    }} />
-            </View>
-        );
-    }
+                        [2, 1, 1]),
+                },
+            ],
+        };
+    });
 
     return (
-        <AppView style={{ flex: 1 }}>
+        <AppView style={styles.flex1}>
             <Animated.View style={animatedStyle} >
-                <View style={{ flex: 1, }}>
-                    <View style={{ padding: 8 }}>
+                <View style={styles.flex1}>
+                    <View style={styles.padding8}>
                         <Card>
                             <Card.Content>
                                 <Title>{t('homePage:welcome')}</Title>
@@ -90,9 +109,13 @@ export const HomeTabs = () => {
                 </View>
             </Animated.View>
             <Tab.Navigator>
-                <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="Settings" component={HomeScreen} />
+                <Tab.Screen name="Home">
+                    {() => <HomeScreen data={data ?? []} scrollHandler={scrollHandler} />}
+                </Tab.Screen>
+                <Tab.Screen name="Settings">
+                    {() => <HomeScreen data={data ?? []} scrollHandler={scrollHandler} />}
+                </Tab.Screen>
             </Tab.Navigator>
         </AppView>
     );
-}
+};

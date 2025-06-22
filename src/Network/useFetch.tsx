@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useFetch = (url: string) => {
     const [data, setData] = useState(null);
@@ -6,7 +6,7 @@ const useFetch = (url: string) => {
     useEffect(() => {
         fetch(url)
             .then((res) => res.json())
-            .then((data) => setData(data));
+            .then((apiData) => setData(apiData));
     }, [url]);
 
     return [data];

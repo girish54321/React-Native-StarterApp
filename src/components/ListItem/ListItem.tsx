@@ -1,5 +1,5 @@
-import React from "react";
-import { GestureResponderEvent } from "react-native";
+import React from 'react';
+import { GestureResponderEvent } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { List, Avatar, Divider } from 'react-native-paper';
 
@@ -24,4 +24,4 @@ export const ListItem = (props: listItemProps) => {
             <Divider />
         </Animatable.View>
     );
-}
+};

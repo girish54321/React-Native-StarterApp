@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Platform,
   KeyboardAvoidingView,
-  NativeModules,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { TextInput, Button, useTheme, } from 'react-native-paper';
-import { userLoginAction } from '../../redux/authStore/action';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { TextInput, Button } from 'react-native-paper';
 import SizedBox from '../../components/SizedBox';
 import useLoginScreenModal from './useLoginScreenModal';
 
@@ -25,23 +22,14 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{
-        flex: 1,
-        paddingHorizontal: 34,
-        justifyContent: 'center',
-      }}>
+      style={styles.container}>
       <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-      </View>
-      <View style={{ flex: 1, marginHorizontal: 22 }}>
+        style={styles.container} />
+      <View style={styles.inputView}>
         <TouchableOpacity
-          style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
+          style={styles.configView}>
           <Text >Running {nativeData?.BUILD_ENV}</Text>
-          <View style={{ marginTop: 8 }} />
+          <View style={styles.baseUrlView} />
           <Text >Your Base URL is {nativeData?.BASE_URL}</Text>
         </TouchableOpacity>
         <TextInput
@@ -51,12 +39,6 @@ const LoginScreen = () => {
           value={userData.email}
           placeholder="Email"
           onChangeText={textEmailChange}
-          right={
-            <TextInput.Icon
-              name={'email'}
-              color={userData.isValidEmail ? Colors.primary : 'gray'}
-            />
-          }
         />
         <TextInput
           style={{ backgroundColor: paperTheme.colors.background }}
@@ -66,24 +48,37 @@ const LoginScreen = () => {
           autoCapitalize="none"
           value={userData.password}
           onChangeText={textPasswordChange}
-          right={
-            <TextInput.Icon
-              name={'key'}
-              color={userData.isValidPassword ? Colors.primary : 'gray'}
-            />
-          }
+
         />
         <SizedBox size={16} />
         <Button
           mode="contained"
-          contentStyle={{ height: 50 }}
-          onPress={() => saveUserLogin()}>
+          onPress={saveUserLogin}>
           Login
         </Button>
       </View>
-      <View style={{ flex: 1 }}></View>
+      <View style={styles.fOne} />
     </KeyboardAvoidingView>
   );
 };
+
+const styles = StyleSheet.create({
+  fOne: { flex: 1 },
+  container: {
+    flex: 1,
+    paddingHorizontal: 34,
+    justifyContent: 'center',
+  },
+  inputView: { flex: 1, marginHorizontal: 22 },
+  input: {
+    width: '100%',
+    marginBottom: 16,
+  },
+  baseUrlView: { marginTop: 8 },
+  configView: { justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 },
+  button: {
+    marginTop: 16,
+  },
+});
 
 export default LoginScreen;

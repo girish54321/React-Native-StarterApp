@@ -88,5 +88,5 @@ export const AppBottomTab = () => {
                 />
             </Tab.Navigator>
         </>
-    )
-}
+    );
+};
