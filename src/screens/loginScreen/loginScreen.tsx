@@ -53,7 +53,7 @@ const LoginScreen = () => {
         <SizedBox size={16} />
         <Button
           mode="contained"
-          onPress={() => saveUserLogin()}>
+          onPress={saveUserLogin}>
           Login
         </Button>
       </View>

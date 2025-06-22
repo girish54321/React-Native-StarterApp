@@ -8,3 +8,9 @@ export function getBaseUrl() {
 export function getEnvironmentVariable() {
     return Flavor.BUILD_ENV === 'DEV' ? true : false;
 }
+
+export function getDefaultHeader() {
+    return {
+        'x-api-key': 'reqres-free-v1',
+    };
+}
