@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.0.2",
+    "@notifee/react-native": "^9.1.8",
     "@react-native-async-storage/async-storage": "^2.1.0",
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/elements": "^2.2.5",

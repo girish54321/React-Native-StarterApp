@@ -17,6 +17,7 @@ const LoginScreen = () => {
     saveUserLogin,
     textEmailChange,
     textPasswordChange,
+    onDisplayNotification,
     nativeData } = useLoginScreenModal();
 
   return (
@@ -53,7 +54,7 @@ const LoginScreen = () => {
         <SizedBox size={16} />
         <Button
           mode="contained"
-          onPress={saveUserLogin}>
+          onPress={onDisplayNotification}>
           Login
         </Button>
       </View>
