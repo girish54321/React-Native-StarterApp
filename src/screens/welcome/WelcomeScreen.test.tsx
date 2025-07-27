@@ -1,4 +1,4 @@
-import 'react-native';
+// import 'react-native';
 import React from 'react';
 import { describe, expect } from '@jest/globals';
 import { WelcomeScreen } from './WelcomeScreen';

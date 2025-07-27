@@ -28,10 +28,9 @@ const useLoginScreenModal = () => {
 
     const saveUserLogin = async () => {
         let postData = {
-            email: 'eve.holt@reqres.in',
-            password: 'cityslicka',
+            email: userData.email,
+            password: userData.password,
         };
-        console.log('Api call');
         mutate({ postData: postData }, {
             onSuccess: (data, _variables, _context) => {
                 authDispatch(authSlice.actions.userLoginAction({
@@ -85,8 +84,7 @@ const useLoginScreenModal = () => {
         textEmailChange,
         textPasswordChange,
         nativeData,
-    }
-
-}
+    };
+};
 
 export default useLoginScreenModal;
