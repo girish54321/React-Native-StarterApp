@@ -3,9 +3,9 @@ import { View, StyleSheet } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 import { Colors } from '../Config/Colors';
 
-const LoadingView = () => {
+const LoadingView = ({ testID }: { testID?: string }) => {
   return (
-    <View style={style.manView} >
+    <View style={style.manView} testID={testID} >
       <ActivityIndicator size="large" color={Colors.primary} />
     </View>
   );

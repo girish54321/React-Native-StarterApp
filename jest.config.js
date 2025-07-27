@@ -7,6 +7,7 @@ module.exports = {
   'transformIgnorePatterns': [
     // 'node_modules/(?!(@react-native|react-native|@react-navigation)/)',
     'node_modules/(?!(@react-native|react-native|react-native-reanimated)/)',
+    // 'node_modules/(?!(@react-native|react-native|@react-navigation)/)'
   ],
   setupFilesAfterEnv: ['./jest-setup.js'],
 };

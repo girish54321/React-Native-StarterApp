@@ -23,8 +23,7 @@ const useLoginScreenModal = () => {
     const nativeData = NativeModules.RNConfigModule;
 
     const authDispatch = useDispatch();
-    const { mutate, isError, error } = useUserLogin();
-    console.log({ isError, error });
+    const { mutate } = useUserLogin();
 
     const saveUserLogin = async () => {
         let postData = {
@@ -42,7 +41,6 @@ const useLoginScreenModal = () => {
                 }));
             },
             onError: (apiError, _variables, _context) => {
-                console.log('On Error');
                 Alert.alert(
                     'Login Failed', `${apiError}`);
             },
