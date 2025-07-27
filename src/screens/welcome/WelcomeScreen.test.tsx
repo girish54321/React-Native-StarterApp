@@ -5,10 +5,6 @@ import { WelcomeScreen } from './WelcomeScreen';
 import { it } from '@jest/globals';
 import { render } from '@testing-library/react-native';
 
-jest.mock('@react-native-async-storage/async-storage', () =>
-    require('@react-native-async-storage/async-storage/jest/async-storage-mock')
-);
-
 describe('test welcome Screen', () => {
     it('Render screen', () => {
         const item = render(<WelcomeScreen />);
