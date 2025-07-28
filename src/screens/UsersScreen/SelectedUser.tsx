@@ -4,12 +4,14 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { AppView } from '../../components/Flex/Flex';
 import { scale } from '../../Config/ScalingUtils';
 import { UserList } from '../../models/responseType/UserListResponse';
+import { useRoute, useNavigation } from '@react-navigation/native';
 
-export const SelectedUserScreen = (props: any) => {
-    const data: UserList = props?.route?.params?.data;
-
+export const SelectedUserScreen = () => {
+    //@ts-ignore
+    const data: UserList = useRoute().params?.data;
+    const navigation = useNavigation();
     useEffect(() => {
-        props.navigation.setOptions({ title: `${data.first_name} ${data.last_name}` });
+        navigation.setOptions({ title: `${data.first_name} ${data.last_name}` });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

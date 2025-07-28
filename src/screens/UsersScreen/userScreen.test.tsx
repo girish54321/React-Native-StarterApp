@@ -64,9 +64,6 @@ describe('UsersScreen', () => {
 
         fireEvent.press(buttonOne);
         expect(NavService.navigate).toHaveBeenCalledTimes(1);
-        // expect(mockedNavigate).toHaveBeenCalledWith('FirstScreen', {
-        // isFirstScreen: true,
-        // });
         expect(NavService.navigate).toHaveBeenCalledWith('SELECTEDUSERSCREEN', {
             data: {
                 'email': 'john.doe@example.com',
