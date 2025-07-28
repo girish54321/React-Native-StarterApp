@@ -28,3 +28,4 @@ jest.mock('./src/navigation/NavigationService', () => ({
     openDrawer: jest.fn(),
     setTopLevelNavigator: jest.fn(),
 }));
+

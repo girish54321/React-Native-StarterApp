@@ -1,11 +1,15 @@
-// import 'react-native';
 import React from 'react';
 import { describe, expect } from '@jest/globals';
 import { WelcomeScreen } from './WelcomeScreen';
 import { it } from '@jest/globals';
 import { render } from '@testing-library/react-native';
 
+
 describe('test welcome Screen', () => {
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     it('Render screen', () => {
         const item = render(<WelcomeScreen />);
         expect(item).toBeTruthy();
