@@ -36,7 +36,6 @@ describe('SettingsScreen', () => {
         const { getByText } = render(<SettingsScreen />);
 
         expect(getByText('Dark')).toBeTruthy();
-
     });
 
     it('should be able to add new item', () => {
