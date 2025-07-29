@@ -4,9 +4,14 @@ import { it } from '@jest/globals';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import { useMutation } from '@tanstack/react-query';
 import LoginScreen from './loginScreen';
-import { Alert } from 'react-native';
+import { Alert, NativeModules } from 'react-native';
 import getTestId from '../../Config/helper';
 import * as reactRedux from 'react-redux';
+
+const defaultConfig = {
+    BUILD_ENV: 'DEV',
+    BASE_URL: 'www.dev.com',
+};
 
 describe('UsersScreen', () => {
     beforeEach(() => {
@@ -20,7 +25,11 @@ describe('UsersScreen', () => {
     });
 
     it('render view with testIds', () => {
-        const { getByTestId } = render(<LoginScreen />);
+        NativeModules.RNConfigModule = defaultConfig;
+        const { getByTestId, getByText } = render(<LoginScreen />);
+
+        expect(getByText('Running DEV')).toBeTruthy();
+        expect(getByText('Your Base URL is www.dev.com')).toBeTruthy();
 
         expect(getByTestId(getTestId('login-email'))).toBeTruthy();
         expect(getByTestId(getTestId('login-password'))).toBeTruthy();

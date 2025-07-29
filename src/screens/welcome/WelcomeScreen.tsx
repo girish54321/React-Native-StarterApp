@@ -5,13 +5,14 @@ import '../../localization';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from '../../components/Button/Button';
 import { Text } from 'react-native-paper';
+import getTestId from '../../Config/helper';
 
 export const WelcomeScreen = () => {
     const { t } = useTranslation();
     return (
         <AppView>
             <Column alignItems="center" justifyContent="center" style={[style.container]}>
-                <Text testID="home-page-test">homePage NS: {t('homePage:welcome')}</Text>
+                <Text testID={getTestId('home-page-test')}>homePage NS: {t('homePage:welcome')}</Text>
                 <Text>Default NS: {t('ok')}</Text>
                 <AppButton
                     onPress={() => {

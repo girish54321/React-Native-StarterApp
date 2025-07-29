@@ -11,9 +11,8 @@ describe('test welcome Screen', () => {
     });
 
     it('Render screen', () => {
-        const item = render(<WelcomeScreen />);
-        expect(item).toBeTruthy();
-        const welcomeText = item.getByTestId('home-page-test');
+        const { getByText } = render(<WelcomeScreen />);
+        const welcomeText = getByText('React Native Starter');
         expect(welcomeText).toBeTruthy();
     });
 });

@@ -6,7 +6,7 @@ import { SelectedUserScreen } from './SelectedUser';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 jest.mock('@react-navigation/native', () => ({
-    ...jest.requireActual('@react-navigation/native'), // Import and retain default exports
+    ...jest.requireActual('@react-navigation/native'),
     useRoute: jest.fn(),
     useNavigation: jest.fn(() => ({
         setOptions: jest.fn(),
@@ -49,6 +49,7 @@ describe('UsersScreen', () => {
                 },
             },
         });
+
         render(<SelectedUserScreen />);
 
         expect(mockSetOptions).toHaveBeenCalledTimes(1);
