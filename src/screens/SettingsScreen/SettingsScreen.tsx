@@ -19,7 +19,6 @@ const SettingsScreen = () => {
   const toggleSwitch = (value: boolean) => {
     appDispatch(themSlice.actions.changeThemAction(value));
   };
-  // console.log("data", JSON.stringify(data));
 
   const removeUser = () => {
     Alert.alert(
@@ -28,6 +27,7 @@ const SettingsScreen = () => {
       [
         {
           text: 'Cancel',
+          isPreferred: true,
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
@@ -60,6 +60,7 @@ const SettingsScreen = () => {
         />
         {data?.isDarkTheme ? <Text>Dark</Text> : <Text>Light</Text>}
         <List.Item
+          testID={getTestId('logout')}
           onPress={removeUser}
           title={t('logOut')}
           description={t('singOut')}
