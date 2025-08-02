@@ -3,9 +3,11 @@ require('react-native-reanimated').setUpTests();
 import { jest } from '@jest/globals';
 
 jest.mock('react-native-gesture-handler');
+
 jest.mock('@react-native-async-storage/async-storage', () =>
     require('@react-native-async-storage/async-storage/jest/async-storage-mock')
 );
+
 jest.mock('@tanstack/react-query', () => ({
     useQuery: jest.fn(),
     useInfiniteQuery: jest.fn(),
@@ -16,6 +18,7 @@ jest.mock('@tanstack/react-query', () => ({
         },
     })),
 }));
+
 jest.mock('react-redux', () => ({
     useSelector: jest.fn(),
     useDispatch: jest.fn(),
