@@ -13,6 +13,10 @@ describe('test welcome Screen', () => {
     it('Render screen', () => {
         const { getByText } = render(<WelcomeScreen />);
         const welcomeText = getByText('React Native Starter');
+        const homePageTest = getByText('homePage NS: Welcome to i18Next!');
+        const defaultTest = getByText('Default NS: OK');
         expect(welcomeText).toBeTruthy();
+        expect(homePageTest).toBeTruthy();
+        expect(defaultTest).toBeTruthy();
     });
 });

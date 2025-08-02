@@ -3,7 +3,7 @@ import { Text } from 'react-native-paper';
 
 const MyComponent = () => (
     <>
-        <Text variant="titleLarge">Title Large</Text>
+        <Text variant="titleLarge" disabled={true}>Title Large</Text>
         <Text variant="titleMedium">Title Medium</Text>
         <Text variant="titleSmall">Title Small</Text>
 
