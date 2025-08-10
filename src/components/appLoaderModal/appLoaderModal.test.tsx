@@ -7,7 +7,7 @@ import * as reactRedux from 'react-redux';
 import AppLoaderModal from './AppLoaderModal';
 jest.mock('react-redux');
 
-describe('LaodingView', () => {
+describe('Loading View', () => {
 
     it('render loading when it true', () => {
         //@ts-ignore
