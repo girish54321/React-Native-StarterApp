@@ -10,7 +10,8 @@ export declare type AppAppBarType = {
 };
 
 export const CustomNavigationBar: React.FC<AppAppBarType> = ({ navigation, route, options, back }) => {
-    const title = getHeaderTitle(options, route.name);
+
+    const title = getHeaderTitle(options, route?.name);
     return (
         <Appbar.Header>
             {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}

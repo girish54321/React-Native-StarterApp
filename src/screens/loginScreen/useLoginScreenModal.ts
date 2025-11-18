@@ -23,15 +23,13 @@ const useLoginScreenModal = () => {
     const nativeData = NativeModules.RNConfigModule;
 
     const authDispatch = useDispatch();
-    const { mutate, isError, error } = useUserLogin();
-    console.log({ isError, error });
+    const { mutate } = useUserLogin();
 
     const saveUserLogin = async () => {
         let postData = {
-            email: 'eve.holt@reqres.in',
-            password: 'cityslicka',
+            email: userData.email,
+            password: userData.password,
         };
-        console.log('Api call');
         mutate({ postData: postData }, {
             onSuccess: (data, _variables, _context) => {
                 authDispatch(authSlice.actions.userLoginAction({
@@ -43,7 +41,6 @@ const useLoginScreenModal = () => {
                 }));
             },
             onError: (apiError, _variables, _context) => {
-                console.log('On Error');
                 Alert.alert(
                     'Login Failed', `${apiError}`);
             },
@@ -85,8 +82,7 @@ const useLoginScreenModal = () => {
         textEmailChange,
         textPasswordChange,
         nativeData,
-    }
-
-}
+    };
+};
 
 export default useLoginScreenModal;

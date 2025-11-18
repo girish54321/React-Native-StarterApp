@@ -7,6 +7,7 @@ import { Route } from '../../constants/Route';
 import { useUserList } from '../../Network/Querys/useUserListQuery';
 import LoadingView from '../../components/loadingView';
 import { ActivityIndicator } from 'react-native-paper';
+import getTestId from '../../Config/helper';
 
 export const UsersScreen = (_props: any) => {
     const { data, isLoading, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage } = useUserList();
@@ -22,7 +23,7 @@ export const UsersScreen = (_props: any) => {
     if (isLoading) {
         return (
             <AppView>
-                <LoadingView />
+                <LoadingView testID={getTestId('user-list-loading')} />
             </AppView>
         );
     }

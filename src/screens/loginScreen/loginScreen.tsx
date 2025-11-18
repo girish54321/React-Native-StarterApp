@@ -10,6 +10,7 @@ import {
 import { TextInput, Button } from 'react-native-paper';
 import SizedBox from '../../components/SizedBox';
 import useLoginScreenModal from './useLoginScreenModal';
+import getTestId from '../../Config/helper';
 
 const LoginScreen = () => {
   const { paperTheme,
@@ -34,6 +35,7 @@ const LoginScreen = () => {
         </TouchableOpacity>
         <TextInput
           style={{ backgroundColor: paperTheme.colors.background }}
+          testID={getTestId('login-email')}
           label="Email"
           autoCapitalize="none"
           value={userData.email}
@@ -43,6 +45,7 @@ const LoginScreen = () => {
         <TextInput
           style={{ backgroundColor: paperTheme.colors.background }}
           secureTextEntry={userData.secureTextEntry}
+          testID={getTestId('login-password')}
           label="Password"
           placeholder="Password"
           autoCapitalize="none"
@@ -52,6 +55,7 @@ const LoginScreen = () => {
         />
         <SizedBox size={16} />
         <Button
+          testID={getTestId('login-button')}
           mode="contained"
           onPress={saveUserLogin}>
           Login

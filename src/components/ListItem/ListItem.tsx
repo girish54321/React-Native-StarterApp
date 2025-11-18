@@ -1,6 +1,5 @@
 import React from 'react';
-import { GestureResponderEvent } from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import { GestureResponderEvent, View } from 'react-native';
 import { List, Avatar, Divider } from 'react-native-paper';
 
 interface listItemProps {
@@ -11,17 +10,28 @@ interface listItemProps {
     onPress: (e: GestureResponderEvent) => void;
 }
 
+
+const AvatarImage = ({ image, ...params }: { image: string } & any) => (
+    <Avatar.Image {...params} source={{ uri: image }} />
+);
+
 export const ListItem = (props: listItemProps) => {
     const { style, name, email, image, onPress } = props;
+
+    const renderLeft = React.useCallback(
+        (params: any) => <AvatarImage {...params} image={image} />,
+        [image]
+    );
+
     return (
-        <Animatable.View animation="slideInDown" style={{ ...style }}>
+        <View style={{ ...style }}>
             <List.Item
                 onPress={onPress}
                 title={name}
                 description={email}
-                left={props => <Avatar.Image  {...props} source={{ uri: image }} />}
+                left={renderLeft}
             />
             <Divider />
-        </Animatable.View>
+        </View>
     );
 };

@@ -18,7 +18,7 @@ Get started building your dream app today with this powerful React Native starte
 
 <img width="1604"  src="image/banner.png?raw=true">
 
-## Demo Test case 
+## Test case 
 <img width="1604"  src="image/testcase.png?raw=true">
 
 ## Installation

@@ -3,22 +3,28 @@ import { View, StyleSheet, Modal } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { APP_STATE } from '../../redux/appStore/AppReducers';
+import getTestId from '../../Config/helper';
 
 const AppLoaderModal = () => {
   const appState: APP_STATE = useSelector((state: any) => state.appReducers);
+
+  if (!appState.isLoading) {
+    return <View />;
+  }
 
   return (
     <Modal
       animationType="slide"
       transparent={true}
       visible={appState.isLoading}
+      testID={getTestId('loader-modal')}
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <ActivityIndicator animating={true} size={42} />
         </View>
       </View>
-    </Modal>
+    </Modal >
   );
 };
 
